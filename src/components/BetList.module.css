@@ -1,0 +1,67 @@
+.lineDiv {
+    display: flex;
+    margin-left: auto;
+}
+
+.lineItem {
+    padding: 20px;
+    padding-right: 20px;
+}
+
+.container {
+    background-color : #272628; 
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.lineDataContainer {
+    background-color : #272628;
+    display: flex;
+    border-radius: 15px;
+    min-height: 500px;
+}
+
+
+.listInfo {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.betButtonGroup {
+    display: flex;
+}
+
+.overBetButton {
+    width: 100px;
+    color: green;
+    border-color: green;
+    border-style: solid;
+}
+
+.underBetButton {
+    width: 100px;
+    color: red;
+}
+
+
+.body {
+    background-color : #272628;
+    max-height: 0;  
+    overflow: hidden;
+    margin: auto;
+}
+
+.bodyExpanded {
+    min-height: 300px;
+    background-color : #272628;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.buttonText {
+    font-weight: bold;
+    color: white;
+}
