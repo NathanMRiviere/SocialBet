@@ -16,13 +16,19 @@
     border-radius: 15px;
 }
 
+.graphContainer {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    
+}
+
 .lineDataContainer {
     background-color : #272628;
     display: flex;
     border-radius: 15px;
     min-height: 500px;
 }
-
 
 .listInfo {
     display: flex;
