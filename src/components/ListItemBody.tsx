@@ -4,6 +4,7 @@ import styles from "./BetList.module.css";
 import { LineChart } from '@mui/x-charts/LineChart';
 import { DataGrid } from '@mui/x-data-grid';
 import { PropData, AnalyticsData } from './types';
+import Typography from '@mui/material/Typography';
 
 interface PropType {
     analytics : AnalyticsData,
@@ -14,16 +15,12 @@ interface PropType {
 const loadingContent = (
     <>
         <div className={styles.graphContainer}> 
-            <Skeleton variant="rectangular" width="100%" height={200} sx={{
+            <Skeleton variant="rectangular" width="100%" height={300} sx={{
                 marginBottom: "20px",
             }} />
             <Divider orientation='vertical' />
             <Skeleton variant="rectangular" width="70%" height={300} />
         </div>
-        <Skeleton variant="text"/>
-        <Skeleton variant="text"/>
-        <Skeleton variant="text"/>
-        <Skeleton variant="text"/>
     </>
 )
 
@@ -34,10 +31,20 @@ const ListItemBody: React.FC<PropType> = (props) => {
         }}>
             {!props.loaded ? loadingContent
              : (  
+                <>
+                    <Typography variant="h6" sx={{
+                        marginTop : "10px",
+                    }}>
+                        Line Trends
+                    </Typography>        
                     <LineChart
-                        xAxis={[{ data: props.analytics.lineData.timestamps, label : "timestamp"}]}
+                        title='Line Trends'
+                        xAxis={[{data: props.analytics.lineData.timestamps, label : "timestamp"}]}
                         series={[{data: props.analytics.lineData.lines, label: "line"}]}
-                        height={300}/>
+                        height={300}
+                        grid={{ vertical: true, horizontal: true }}
+                    />
+                </>
                 )}
         </Container>
     )
