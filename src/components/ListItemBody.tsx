@@ -3,26 +3,21 @@ import  { useState, useEffect  } from 'react';
 import styles from "./BetList.module.css";
 import { LineChart } from '@mui/x-charts/LineChart';
 import { DataGrid } from '@mui/x-data-grid';
+import { PropData, AnalyticsData } from './types';
 
-
-interface Data {
-    timestamps : Array<number>,
-    lines : Array<number>
+const exampleData : AnalyticsData = {
+    lineData : {
+        timestamps : [1, 2, 3, 4, 5, 6],
+        lines : [255.5, 254.5, 254.5, 255.5, 255.5]
+    },
+    playerData : [{
+        home : false,
+        opponent : "",
+        result : 300
+    }]
 }
 
-const xData = [1, 2, 3, 4, 5, 6]
-const yData = [255.5, 254.5, 254.5, 255.5, 255.5]
-
-const exampleData : Data = {
-    timestamps: xData,
-    lines: yData
-}
-
-interface Props {
-    id : number,
-}
-
-const ListItemBody: React.FC<Props> = (props) => {
+const ListItemBody: React.FC<PropData> = (props) => {
     const [data, setData] = useState(exampleData)
     const [loaded, setLoaded] = useState(false)
     useEffect(() => {
@@ -50,8 +45,8 @@ const ListItemBody: React.FC<Props> = (props) => {
                 </>
             ) : (  
                 <LineChart
-                    xAxis={[{ data: data.timestamps, label : "timestamp"}]}
-                    series={[{data: data.lines, label: "line"}]}
+                    xAxis={[{ data: data.lineData.timestamps, label : "timestamp"}]}
+                    series={[{data: data.lineData.lines, label: "line"}]}
                     height={300}/>
             )}
         </Container>
